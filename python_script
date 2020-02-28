@@ -1,0 +1,6 @@
+import pandas as pd
+from haversine import haversine as hs
+
+df=pd.read_csv('C:/Users/IGAWorks_Wade/audioclip_3개월.csv')
+
+df['dist']=df.apply(lambda x: hs((x['location_latitude'],x['location_longitude']),(x['address_latitude'],x['address_longitude'])),axis=1)
